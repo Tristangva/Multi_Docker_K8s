@@ -1,0 +1,19 @@
+apiVersion: aps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      label:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: tristangva/multi-client
+          ports:
+              - containerPort: 3000
