@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
         - name: server
-          image: tristangva/multi-client
+          image: cygnetops/multi-server-pgfix-5-11
           ports:
-            - containerPort: 3000
+            - containerPort: 5000
           env:
             - name: REDIS_HOST
-              value: redis-cluster0ip-service
+              value: redis-cluster-ip-service
             - name: REDIS_PORT
               value: '6379'
             - name: PGUSER
@@ -31,7 +31,7 @@ spec:
             - name: PGDATABASE
               value: postgres
             - name: PGPASSWORD
-              valueFrom: 
+              valueFrom:
                 secretKeyRef:
                   name: pgpassword
                   key: PGPASSWORD

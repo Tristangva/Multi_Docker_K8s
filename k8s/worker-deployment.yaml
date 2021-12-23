@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: worker-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       component: worker
@@ -14,10 +14,9 @@ spec:
     spec:
       containers:
         - name: worker
-          image: tristangva/multi-worker
+          image: stephengrider/multi-worker
           env:
             - name: REDIS_HOST
               value: redis-cluster-ip-service
             - name: REDIS_PORT
               value: '6379'
-              
